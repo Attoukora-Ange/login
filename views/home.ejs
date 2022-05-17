@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <nav>
+        <div class="logo">Logo</div>
+        <div class="menu">
+            <% if (user) { %>
+              <ul>
+                <li><a href="/">Acceuil</a></li>
+                <li><a href="/profile">Profil</a></li>
+                <li>
+                    <form action="/logout?_method=DELETE" method="post">
+                        <button type="submit">Déconnexion</button>
+                    </form>
+                </li>
+            </ul>
+            <% }else{ %>
+                <ul>
+                    <li><a href="/">Acceuil</a></li>
+                    <li><a href="/login">Login</a></li>
+                    <li><a href="/register">register</a></li>
+                </ul>
+
+            <% }%>
+        </div>
+    </nav>
+    <div class="main">
+         <% if (user) { %>
+           <h1><%= user.name %>, Bienvenue sur mon site de connexion  </h1>
+        <% }else{%>
+        <h1>Inconnue, Bienvenue sur mon site de connexion</h1>
+        <% }%>   
+    </div>
+</body>
+</html>
